@@ -9,11 +9,7 @@ exports.max = function max(array) {
 };
 
 exports.avg = function avg(array) {
-    if (array === undefined) return 0;
-    let total = 0;
-    for (let i = 0; i < array.length; i++) {
-        total += array[i];
-    }
-    if (array.length === 0) return 0;
-    return (total / array.length).toFixed(2);
+    if (!Array.isArray(array) || array.length === 0) return 0;
+    const sum = array.reduce((acc, currentValue) => (acc += currentValue), 0);
+    return (sum / array.length).toFixed(2);
 };
